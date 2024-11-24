@@ -1,174 +1,177 @@
-/* Reset */
-body, h1, h2, ul, li, input, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body,
+h1,
+h2,
+ul,
+li,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(circle, #1a1a1d, #0f0f10);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(15, 15, 20, 0.8);
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 4px 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #f7f7f7;
+  text-shadow: 0 0 10px #ff007c, 0 0 20px #ff007c;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px #00e6e6, 0 0 15px #00e6e6;
+}
+
+/* Buttons */
+.btn-add {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff007c, #ff6f61);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 0, 124, 0.3), 0 0 15px rgba(255, 0, 124, 0.4);
+}
+
+.btn-add:hover {
+  background: linear-gradient(135deg, #ff007c, #ff4c3b);
+  box-shadow: 0 6px 20px rgba(255, 0, 124, 0.5), 0 0 20px rgba(255, 0, 124, 0.6);
+  transform: translateY(-2px);
+}
+
+.expense-list {
+  list-style: none;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 5px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #00e6e6 rgba(255, 255, 255, 0.1);
+}
+
+.expense-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.expense-list::-webkit-scrollbar-thumb {
+  background: #00e6e6;
+  border-radius: 5px;
+}
+
+
+.expense-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+}
+
+.expense-list li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 0 15px #00e6e6, 0 0 20px #00e6e6;
+}
+
+
+.expense-list button {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #ff4c3b;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s;
+}
+
+.expense-list button:hover {
+  color: #ff6f61;
+  transform: scale(1.1);
+}
+
+
+.summary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00e6e6, 0 0 15px #00e6e6;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: radial-gradient(circle, #1a1a1d, #0f0f10);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  /* Container Styles */
+}
+
+
+@media (max-width: 500px) {
   .container {
-    background: rgba(15, 15, 20, 0.8);
-    border-radius: 15px;
-    padding: 30px;
-    width: 90%;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 4px 15px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: fadeIn 1.2s ease-in-out;
+    width: 95%;
   }
-  
-  .title {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #f7f7f7;
-    text-shadow: 0 0 10px #ff007c, 0 0 20px #ff007c;
-  }
-  
-  /* Form Styles */
-  form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    transition: background 0.3s, box-shadow 0.3s;
-  }
-  
-  input:focus {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 8px #00e6e6, 0 0 15px #00e6e6;
-  }
-  
-  /* Buttons */
+
   .btn-add {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #ff007c, #ff6f61);
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 0, 124, 0.3), 0 0 15px rgba(255, 0, 124, 0.4);
-  }
-  
-  .btn-add:hover {
-    background: linear-gradient(135deg, #ff007c, #ff4c3b);
-    box-shadow: 0 6px 20px rgba(255, 0, 124, 0.5), 0 0 20px rgba(255, 0, 124, 0.6);
-    transform: translateY(-2px);
-  }
-  
-  .expense-list {
-    list-style: none;
-    margin-bottom: 20px;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 5px 10px;
-    scrollbar-width: thin;
-    scrollbar-color: #00e6e6 rgba(255, 255, 255, 0.1);
-  }
-  
-  .expense-list::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .expense-list::-webkit-scrollbar-thumb {
-    background: #00e6e6;
-    border-radius: 5px;
-  }
-  
-  /* Expense Item */
-  .expense-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.3s;
-  }
-  
-  .expense-list li:hover {
-    transform: translateX(5px);
-    box-shadow: 0 0 15px #00e6e6, 0 0 20px #00e6e6;
-  }
-  
-  /* Expense Item Buttons */
-  .expense-list button {
-    background: none;
-    border: none;
+    padding: 10px 15px;
     font-size: 0.9rem;
-    color: #ff4c3b;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s;
   }
-  
-  .expense-list button:hover {
-    color: #ff6f61;
-    transform: scale(1.1);
+
+  input {
+    font-size: 0.9rem;
+    padding: 10px;
   }
-  
-  /* Summary */
-  .summary {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-shadow: 0 0 8px #00e6e6, 0 0 15px #00e6e6;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 500px) {
-    .container {
-      width: 95%;
-    }
-  
-    .btn-add {
-      padding: 10px 15px;
-      font-size: 0.9rem;
-    }
-  
-    input {
-      font-size: 0.9rem;
-      padding: 10px;
-    }
-  }
-  
+}
